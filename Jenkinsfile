@@ -15,15 +15,18 @@ pipeline {
                 }
                 sh """
                   docker run --rm  \\
-                    -v ${PWD}:/modmount  \\
-                    kubling/kubling-dbvirt-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
+                    -v ${env.WORKSPACE}:/modmount  \\
+                    kubling/dbvirt-cli:latest bundle genmod /modmount/module -o /modmount/mymod.zip
                 """
 
                 sh """
                   docker run --rm  \\
-                    -v ${PWD}:/modmount  \\
-                    kubling/kubling-dbvirt-cli:latest bundle pubmod /modmount/mymod.zip -t $REPO_TOKEN
+                    -v ${env.WORKSPACE}:/modmount  \\
+                    kubling/dbvirt-cli:latest bundle pubmod /modmount/mymod.zip -t $REPO_TOKEN
                 """
+
+                sh """ docker image rm kubling/dbvirt-cli:latest """
+
             }
         }
     }
