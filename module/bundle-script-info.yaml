@@ -1,0 +1,22 @@
+name: atlassian-jira
+version: 0.0.1
+description: |
+  This module provides access to various Atlassian JIRA API endpoints.
+innerDDLFilePath: "jira.ddl"
+innerTranslatorConfigFilePath: "translator-config.yaml"
+
+resultSetScript:
+  scriptFilePath: "JiraResultSetDelegate.js"
+insertScript:
+  scriptFilePath: "JiraInsertDelegate.js"
+updateScript:
+  scriptFilePath: "JiraUpdateDelegate.js"
+deleteScript:
+  scriptFilePath: "JiraDeleteDelegate.js"
+
+contextVariables:
+  - name: "ATLASSIAN_URL"
+    failIfMissing: true
+  - name: "ATLASSIAN_TOKEN"
+    sensitive: true
+    failIfMissing: true
