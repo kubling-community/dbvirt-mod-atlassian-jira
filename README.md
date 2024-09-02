@@ -1,4 +1,4 @@
-# dbvirt-mod-atlassian-jira (:construction:)
+# dbvirt-mod-atlassian-jira
 
 [![Kubling license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
