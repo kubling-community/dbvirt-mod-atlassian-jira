@@ -2,16 +2,30 @@
 
 [![Kubling license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
-Official ready-to-use module that contains the schema and logic for interacting with Atlassian JIRA APIs.
+> [!IMPORTANT]
+> **This repository is archived and no longer maintained.**
+>
+> Kubling integrations now use providers. For Atlassian Jira integrations,
+> configure the [official OpenAPI provider](https://github.com/kubling-community/kubling-providers/tree/main/providers/openapi)
+> when Jira's OpenAPI description covers the required API surface, or implement
+> a [custom provider](https://github.com/kubling-community/kubling-providers)
+> when Jira-specific behavior is required.
+>
+> This module remains available for historical reference.
+
+## Historical documentation
+
+The sections below describe the legacy JavaScript module and are not current Kubling integration guidance.
+
+This module contains the schema and logic for interacting with Atlassian Jira APIs.
 
 ## Some considerations before usage
 
-* `JavaScript` client delegates are generated [using our template](https://github.com/kubling-community/javascript-gen-clients) as a starting point, but bear in mind that some of them
-need special adaptations, therefore if you are planning to create your own version of this module, you would need to adapt the client yourself.
+* `JavaScript` client delegates were generated with the now-archived [client generator](https://github.com/kubling-community/javascript-gen-clients) and required Jira-specific adaptations.
 
-* If this module's schema does not contain a specific `TABLE`, it does not mean that the entity or endpoint is not supported. In case you detect that, please create an issue or open a PR.
+* Missing tables did not necessarily mean that an entity or endpoint was unsupported. New integrations should add mappings to the OpenAPI provider configuration or implement them in a custom provider.
 
-* Building and Publishing still run on our private infra, however we will soon migrate to GitHub Actions. We kept the pipeline as simple as possible, with just `sh` tasks running the cli in Docker form, just in case you want to fork and have your own Module based on this one, so steps are clear and easily adaptable to a different CICD platform.  
+* The historical build and publishing pipeline ran on private infrastructure. The repository remains available so its implementation can be inspected or forked.
 
 ## Queries fetching time
 
